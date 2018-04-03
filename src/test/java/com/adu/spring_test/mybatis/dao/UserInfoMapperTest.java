@@ -19,14 +19,14 @@ public class UserInfoMapperTest extends BaseTest {
 
     @Test
     public void queryUserById() {
-        long id = 2;
+        long id = 5;
         UserInfo user = userInfoMapper.queryUserById(id);
         logger.debug("user={}", user);
     }
 
     @Test
     public void queryUserById2() {
-        long id = 2;
+        long id = 5;
         UserInfo user = userInfoMapper.queryUserById2(id);
         logger.debug("user={}", user);
     }

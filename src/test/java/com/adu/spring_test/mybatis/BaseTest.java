@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.adu.spring_test.mybatis.model.UserInfo2;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +32,23 @@ public class BaseTest {
         res.setUserName("adu-" + System.currentTimeMillis());
         res.setSex(CodeEnumUtil.codeOf(SexEnum.class, (int) (System.currentTimeMillis() % 3)));
         res.setAge(20 + new Random().nextInt(20));
+        res.setProfInfo(Lists.newArrayList(new ProfInfo(170 + 10 * new Random().nextDouble(), 80 + 10 * new Random().nextDouble(),
+                Lists.newArrayList("台球", "乒乓球"))));
+        /*res.setProfInfo(new ProfInfo(170 + 10 * new Random().nextDouble(), 80 + 10 * new Random().nextDouble(),
+                Lists.newArrayList("台球", "乒乓球")));*/
+        return res;
+    }
+
+    protected UserInfo2 mockUserInfo2() {
+        UserInfo2 res = new UserInfo2();
+        res.setUserName("adu-" + System.currentTimeMillis());
+        res.setSex(CodeEnumUtil.codeOf(SexEnum.class, (int) (System.currentTimeMillis() % 3)));
+        res.setAge(20 + new Random().nextInt(20));
         res.setProfInfo(new ProfInfo(170 + 10 * new Random().nextDouble(), 80 + 10 * new Random().nextDouble(),
                 Lists.newArrayList("台球", "乒乓球")));
         return res;
     }
+
 
     protected List<UserInfo> mockUserInfos(int count) {
         List<UserInfo> res = Lists.newArrayList();

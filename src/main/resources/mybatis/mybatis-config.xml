@@ -23,6 +23,9 @@
         <setting name="defaultExecutorType" value="REUSE"/>
         <!-- 设置超时时间，它决定驱动等待一个数据库响应的时间 -->
         <setting name="defaultStatementTimeout" value="600"/>
+        <!-- 当没有为参数提供特定的 JDBC 类型时，为空值指定 JDBC 类型。
+        某些驱动需要指定列的 JDBC 类型，多数情况直接用一般类型即可，比如 NULL、VARCHAR 或 OTHER。  -->
+        <setting name="jdbcTypeForNull" value="OTHER"/>
     </settings>
 
     <typeHandlers>
@@ -31,14 +34,17 @@
 
         <typeHandler handler="com.adu.spring_test.mybatis.typehandler.JsonTypeHandler"
                      javaType="com.adu.spring_test.mybatis.model.ProfInfo"/>
+
+        <typeHandler handler="com.adu.spring_test.mybatis.typehandler.JsonTypeHandler"
+                     javaType="java.util.List"/>
     </typeHandlers>
     
-    <plugins>
+   <!-- <plugins>
         <plugin interceptor="com.adu.spring_test.mybatis.interceptor.MapF2FInterceptor"></plugin>
         <plugin interceptor="com.adu.spring_test.mybatis.interceptor.SlowQueryTimeInterceptor">
             <property name="slowMilliSecond" value="1"></property>
         </plugin>
-    </plugins>
+    </plugins>-->
 
 
 </configuration>
